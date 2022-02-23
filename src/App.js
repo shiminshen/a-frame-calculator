@@ -1,3 +1,6 @@
+import 'aframe'
+import 'aframe-event-set-component'
+
 import './App.css'
 
 // AFRAME.registerComponent('change-color-on-hover', {
@@ -26,23 +29,48 @@ import './App.css'
 //   }
 // });
 
-const BUTTON_BACKGROUND = '#5f6368';
+const BUTTON_BACKGROUND = '#3c4043'
+const BUTTON_BACKGROUND_ACTIVE = '#424548'
+
+const ButtonPlane = ({ className, position, width = 1, height = 1, color = BUTTON_BACKGROUND, text }) => {
+  return (
+    <a-plane
+      className={className}
+      position={position}
+      width={width}
+      height={height}
+      color={BUTTON_BACKGROUND}
+      event-set__enter={`_event: mouseenter; color: ${BUTTON_BACKGROUND_ACTIVE}`}
+      event-set__leave={`_event: mouseleave; color: ${BUTTON_BACKGROUND}`}
+    >
+      <a-text value={text} position="-0.1 0 0"></a-text>
+    </a-plane>
+  )
+};
 
 const Row0 = () => {
   return (
     <>
-      <a-plane className='operand' position="-1.5 -1 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="0" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='dot' position="-0.5 -1 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="." position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operator' position="0.5 -1 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="=" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operator' position="1.5 -1 -4" width="1" height="1" color={BUTTON_BACKGROUND} border='1px solid #fff'>
-        <a-text value="+" position="-0.1 0 0"></a-text>
-      </a-plane>
+      <ButtonPlane
+        className="operand"
+        position="-1.5 -1 -4"
+        text='0'
+      />
+      <ButtonPlane
+        className="dot"
+        position="-0.5 -1 -4"
+        text='.'
+      />
+      <ButtonPlane
+        className="operator"
+        position="0.5 -1 -4"
+        text='='
+      />
+      <ButtonPlane
+        className="operator"
+        position="1.5 -1 -4"
+        text='+'
+      />
     </>
   )
 }
@@ -50,18 +78,26 @@ const Row0 = () => {
 const Row1 = () => {
   return (
     <>
-      <a-plane className='operand' position="-1.5 0 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="1" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operand' position="-0.5 0 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="2" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operand' position="0.5 0 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="3" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operator' position="1.5 0 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="-" position="-0.1 0 0"></a-text>
-      </a-plane>
+      <ButtonPlane
+        className="operand"
+        position="-1.5 0 -4"
+        text='1'
+      />
+      <ButtonPlane
+        className="operand"
+        position="-0.5 0 -4"
+        text='2'
+      />
+      <ButtonPlane
+        className="operand"
+        position="0.5 0 -4"
+        text='3'
+      />
+      <ButtonPlane
+        className="operator"
+        position="1.5 0 -4"
+        text='-'
+      />
     </>
   )
 }
@@ -69,18 +105,26 @@ const Row1 = () => {
 const Row2 = () => {
   return (
     <>
-      <a-plane className='operand' position="-1.5 1 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="4" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operand' position="-0.5 1 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="5" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operand' position="0.5 1 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="6" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operator' position="1.5 1 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="*" position="-0.1 0 0"></a-text>
-      </a-plane>
+      <ButtonPlane
+        className="operand"
+        position="-1.5 1 -4"
+        text='4'
+      />
+      <ButtonPlane
+        className="operand"
+        position="-0.5 1 -4"
+        text='5'
+      />
+      <ButtonPlane
+        className="operand"
+        position="0.5 1 -4"
+        text='6'
+      />
+      <ButtonPlane
+        className="operator"
+        position="1.5 1 -4"
+        text='*'
+      />
     </>
   )
 }
@@ -88,25 +132,33 @@ const Row2 = () => {
 const Row3 = () => {
   return (
     <>
-      <a-plane className='operand' position="-1.5 2 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="7" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operand' position="-0.5 2 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="8" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operand' position="0.5 2 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="9" position="-0.1 0 0"></a-text>
-      </a-plane>
-      <a-plane className='operator' position="1.5 2 -4" width="1" height="1" color={BUTTON_BACKGROUND}>
-        <a-text value="/" position="-0.1 0 0"></a-text>
-      </a-plane>
+      <ButtonPlane
+        className="operand"
+        position="-1.5 2 -4"
+        text='7'
+      />
+      <ButtonPlane
+        className="operand"
+        position="-0.5 2 -4"
+        text='8'
+      />
+      <ButtonPlane
+        className="operand"
+        position="0.5 2 -4"
+        text='9'
+      />
+      <ButtonPlane
+        className="operator"
+        position="1.5 2 -4"
+        text='/'
+      />
     </>
   )
 }
 
 const Row4 = () => {
   return (
-    <a-plane position="0 3 -4" width="4" height="1" color='#303134'>
+    <a-plane position="0 3 -4" width="4" height="1" color="#303134">
       <a-text value="0" position="0 0 0"></a-text>
     </a-plane>
   )
@@ -116,9 +168,7 @@ const App = () => {
   return (
     <div className="App">
       <a-scene>
-        <a-camera>
-          <a-cursor></a-cursor>
-        </a-camera>
+        <a-entity cursor="rayOrigin:mouse"></a-entity>
         <Row0 />
         <Row1 />
         <Row2 />
