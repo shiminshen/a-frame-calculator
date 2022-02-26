@@ -4,6 +4,29 @@ import 'aframe-state-component'
 
 import './App.css'
 
+const calculate = (calculator, action) => {
+  switch (calculator.operator) {
+    case '+':
+      calculator.result = +calculator.tmp + +calculator.result
+    break
+    case '-':
+      calculator.result = +calculator.tmp - +calculator.result
+    break
+    case '*':
+      calculator.result = +calculator.tmp * +calculator.result
+    break
+    case '/':
+      calculator.result = +calculator.tmp / +calculator.result
+    break
+
+    default:
+  }
+
+    calculator.result = calculator.result.toString()
+    calculator.tmp = ''
+    calculator.operator = action.value || ''
+}
+
 window.AFRAME.registerState({
   initialState: {
     calculator: {
@@ -33,30 +56,15 @@ window.AFRAME.registerState({
     },
 
     addOperator: ({ calculator }, action) => {
-      calculator.operator = action.value
+      if (calculator.tmp && calculator.operator !== '=') {
+        calculate(calculator, action)
+      } else {
+        calculator.operator = action.value
+      }
     },
 
     equal: ({ calculator }, action) => {
-      switch (calculator.operator) {
-        case '+':
-          calculator.result = +calculator.tmp + +calculator.result
-          break
-        case '-':
-          calculator.result = +calculator.tmp - +calculator.result
-          break
-        case '*':
-          calculator.result = +calculator.tmp * +calculator.result
-          break
-        case '/':
-          calculator.result = +calculator.tmp / +calculator.result
-          break
-
-        default:
-      }
-
-      calculator.result = calculator.result.toString()
-      calculator.tmp = ''
-      calculator.operator = '='
+      calculate(calculator, action)
     }
   }
 })
