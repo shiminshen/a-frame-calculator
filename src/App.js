@@ -120,25 +120,25 @@ const Row0 = () => {
     <>
       <ButtonPlane
         className="operand"
-        position="-1.5 -1 -4"
+        position="-1.5 -1 -5"
         text="0"
         click-button="event: addNumber; value: 0"
       />
       <ButtonPlane
         className="dot"
-        position="-0.5 -1 -4"
+        position="-0.5 -1 -5"
         text="."
         click-button="event: addDot; value: ."
       />
       <ButtonPlane
         className="operator"
-        position="0.5 -1 -4"
+        position="0.5 -1 -5"
         text="="
         click-button="event: equal"
       />
       <ButtonPlane
         className="operator"
-        position="1.5 -1 -4"
+        position="1.5 -1 -5"
         text="+"
         click-button="event: addOperator; value: +"
       />
@@ -151,25 +151,25 @@ const Row1 = () => {
     <>
       <ButtonPlane
         className="operand"
-        position="-1.5 0 -4"
+        position="-1.5 0 -5"
         text="1"
         click-button="event: addNumber; value: 1"
       />
       <ButtonPlane
         className="operand"
-        position="-0.5 0 -4"
+        position="-0.5 0 -5"
         text="2"
         click-button="event: addNumber; value: 2"
       />
       <ButtonPlane
         className="operand"
-        position="0.5 0 -4"
+        position="0.5 0 -5"
         text="3"
         click-button="event: addNumber; value: 3"
       />
       <ButtonPlane
         className="operator"
-        position="1.5 0 -4"
+        position="1.5 0 -5"
         text="-"
         click-button="event: addOperator; value: -"
       />
@@ -182,25 +182,25 @@ const Row2 = () => {
     <>
       <ButtonPlane
         className="operand"
-        position="-1.5 1 -4"
+        position="-1.5 1 -5"
         text="4"
         click-button="event: addNumber; value: 4"
       />
       <ButtonPlane
         className="operand"
-        position="-0.5 1 -4"
+        position="-0.5 1 -5"
         text="5"
         click-button="event: addNumber; value: 5"
       />
       <ButtonPlane
         className="operand"
-        position="0.5 1 -4"
+        position="0.5 1 -5"
         text="6"
         click-button="event: addNumber; value: 6"
       />
       <ButtonPlane
         className="operator"
-        position="1.5 1 -4"
+        position="1.5 1 -5"
         text="*"
         click-button="event: addOperator; value: *"
       />
@@ -213,25 +213,25 @@ const Row3 = () => {
     <>
       <ButtonPlane
         className="operand"
-        position="-1.5 2 -4"
+        position="-1.5 2 -5"
         text="7"
         click-button="event: addNumber; value: 7"
       />
       <ButtonPlane
         className="operand"
-        position="-0.5 2 -4"
+        position="-0.5 2 -5"
         text="8"
         click-button="event: addNumber; value: 8"
       />
       <ButtonPlane
         className="operand"
-        position="0.5 2 -4"
+        position="0.5 2 -5"
         text="9"
         click-button="event: addNumber; value: 9"
       />
       <ButtonPlane
         className="operator"
-        position="1.5 2 -4"
+        position="1.5 2 -5"
         text="/"
         click-button="event: addOperator; value: /"
       />
@@ -241,7 +241,7 @@ const Row3 = () => {
 
 const Row4 = () => {
   return (
-    <a-box position="0 3 -4" width="4" height="1" depth="0.5" color="#303134">
+    <a-box position="0 3 -5" width="4" height="1" depth="0.5" color="#303134">
       <a-text
         bind__value="value: calculator.result"
         position="1.5 0 0.25"
